@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d1b">
+<title>ANEES PRIVATE COIN CENTER</title>
+<style>
+:root{--bg:#090d1b;--panel:#111a2d;--panel2:#17233a;--line:#263650;--text:#f4f7ff;--muted:#9aa9c2;--cyan:#4de1d2;--gold:#ffd166;--pink:#c5a3ff;--red:#ff7b87}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#1b3151 0,transparent 35%),radial-gradient(circle at 100% 30%,#30204a 0,transparent 30%),var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,Arial;min-height:100vh}
+.wrap{max-width:1050px;margin:auto;padding:22px}.brand{display:flex;align-items:center;gap:12px;margin:8px 0 24px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--cyan),var(--pink));display:grid;place-items:center;color:#07111d;font-size:23px;font-weight:900}.brand h1{font-size:clamp(18px,4vw,25px);margin:0;letter-spacing:.5px}.brand p{margin:3px 0 0;color:var(--muted);font-size:12px}
+.card{background:linear-gradient(160deg,rgba(24,37,60,.96),rgba(13,21,37,.96));border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 18px 50px #0004}.login{max-width:420px;margin:7vh auto}.login h2,.section-title{margin:0 0 8px}.muted{color:var(--muted)}label{display:block;color:#c4d0e4;font-size:13px;margin:14px 0 7px}input,select{width:100%;background:#0b1425;border:1px solid #30425e;border-radius:12px;padding:13px;color:var(--text);font:inherit;outline:none}input:focus,select:focus{border-color:var(--cyan)}button{border:0;border-radius:12px;padding:12px 16px;font:700 14px system-ui;cursor:pointer;background:linear-gradient(100deg,var(--cyan),#9ff2d9);color:#06131b}button.secondary{background:#22324d;color:var(--text);border:1px solid #3b506f}button.purple{background:linear-gradient(100deg,#b99aff,#e4c4ff);color:#1b1230}button.danger{background:#442433;color:#ffdce0;border:1px solid #784151}.full{width:100%;margin-top:16px}.hidden{display:none!important}.notice{font-size:12px;line-height:1.5;color:#f5d99c;background:#382f1c;border:1px solid #66532a;border-radius:12px;padding:12px;margin-top:15px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}.top small{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:16px}.stat{padding:18px;border-radius:17px;background:#111c30;border:1px solid var(--line)}.stat .name{color:var(--muted);font-size:13px}.stat .value{font-size:clamp(24px,5vw,34px);font-weight:850;margin-top:8px}.coin{color:var(--gold)}.diamond{color:var(--cyan)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel-title{font-weight:750;margin:0 0 4px}.row{display:flex;gap:10px}.row>*{flex:1}.hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:9px}.table-wrap{overflow:auto;margin-top:12px}table{width:100%;border-collapse:collapse;min-width:560px}th,td{text-align:left;padding:11px;border-bottom:1px solid #263650;font-size:13px}th{color:var(--muted);font-weight:600}.pill{font-size:11px;padding:4px 8px;border-radius:30px;background:#243550;color:#cfe3ff}.empty{text-align:center;color:var(--muted);padding:20px}.footer{text-align:center;color:#72829e;font-size:11px;margin:22px 0 8px}
+@media(max-width:700px){.wrap{padding:15px}.grid{grid-template-columns:1fr}.stats{gap:9px}.stat{padding:14px}.card{padding:16px}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="brand"><div class="logo">A</div><div><h1>ANEES PRIVATE COIN CENTER</h1><p>Private balance dashboard · Personal use</p></div></header>
+
+  <section id="login" class="card login">
+    <h2>Admin Login</h2><p class="muted">صرف ایڈمن کے لیے</p>
+    <label for="password">Password</label><input id="password" type="password" placeholder="Enter admin password" autocomplete="current-password">
+    <button class="full" id="loginBtn">Login to dashboard</button>
+    <div id="loginError" class="hint" style="color:var(--red)"></div>
+    <div class="notice">Demo password: <b>Anees@143</b><br>اسے استعمال کرنے سے پہلے کوڈ میں تبدیل کر لو۔ یہ صرف ڈیمو لاگ اِن ہے، محفوظ آن لائن اکاؤنٹ نہیں۔</div>
+  </section>
+
+  <main id="app" class="hidden">
+    <div class="top"><div><b>Dashboard</b><br><small>Welcome, Anees · Local demo wallet</small></div><button class="secondary" id="logoutBtn">Logout</button></div>
+    <div class="stats">
+      <div class="stat"><div class="name">🪙 Website Coins</div><div class="value coin" id="coins">0</div></div>
+      <div class="stat"><div class="name">💎 Website Diamonds</div><div class="value diamond" id="diamonds">0</div></div>
+    </div>
+    <div class="grid">
+      <section class="card">
+        <h3 class="panel-title">Generate website balance</h3><div class="hint">یہ صرف اسی ویب سائٹ کے ڈیمو والٹ میں بیلنس بڑھاتا ہے۔</div>
+        <label for="asset">Currency</label><select id="asset"><option value="coins">🪙 Coins</option><option value="diamonds">💎 Diamonds</option></select>
+        <label for="amount">Amount</label><input id="amount" type="number" min="1" step="1" placeholder="مثلاً 5000">
+        <button class="full" id="generateBtn">Generate balance</button>
+      </section>
+      <section class="card">
+        <h3 class="panel-title">Send / record a transfer</h3><div class="hint">کسی بھی Game ID کو درج کر کے صرف ڈیمو ٹرانسفر ریکارڈ بنائیں۔ گیم میں اصل کرنسی نہیں جائے گی۔</div>
+        <label for="gameId">Yalla Ludo Game ID</label><input id="gameId" inputmode="numeric" placeholder="Enter any Game ID">
+        <label for="sendAsset">Currency</label><select id="sendAsset"><option value="coins">🪙 Coins</option><option value="diamonds">💎 Diamonds</option></select>
+        <label for="sendAmount">Amount</label><input id="sendAmount" type="number" min="1" step="1" placeholder="Amount to record">
+        <button class="full purple" id="sendBtn">Record demo transfer</button>
+      </section>
+    </div>
+    <section class="card" style="margin-top:15px">
+      <div class="top"><div><h3 class="section-title">Transaction history</h3><small>آپ کے اس براؤزر میں محفوظ</small></div><button class="danger" id="clearBtn">Clear history & balances</button></div>
+      <div class="table-wrap"><table><thead><tr><th>Date & time</th><th>Type</th><th>Currency</th><th>Amount</th><th>Game ID / Note</th></tr></thead><tbody id="history"></tbody></table><div id="empty" class="empty">ابھی کوئی ٹرانزیکشن نہیں۔</div></div>
+    </section>
+    <div class="notice"><b>اہم:</b> یہ آف لائن/فرنٹ اینڈ پروٹوٹائپ ہے۔ Coins اور Diamonds صرف ویب سائٹ کے اندر فرضی بیلنس ہیں۔ Yalla Ludo کے اصلی سرور سے کنکشن یا اصل ٹاپ اَپ نہیں ہوتا۔ اصل ٹرانسفر کے لیے گیم کی آفیشل اجازت اور API/پارٹنر سروس ضروری ہے۔ GitHub Pages پر صرف یہ فائل رکھنے سے ایڈمن لاگ اِن محفوظ نہیں بنتا؛ پبلک ویب سائٹ کے لیے بیک اینڈ اور سرور سائیڈ تصدیق لازمی ہے۔</div>
+  </main>
+  <div class="footer">ANEES PRIVATE COIN CENTER · Demo build</div>
+</div>
+<script>
+/* Demo only. Change this password before testing.
+   Client-side passwords are visible in source and are NOT secure for public hosting. */
+const ADMIN_PASSWORD = "Anees@143";
+const $ = id => document.getElementById(id);
+const read = () => { try { return JSON.parse(localStorage.getItem("aneesWalletDemo") || '{"coins":0,"diamonds":0,"history":[]}'); } catch(e) { return {coins:0,diamonds:0,history:[]}; } };
+let data = read();
+const save = () => localStorage.setItem("aneesWalletDemo", JSON.stringify(data));
+const fmt = n => Number(n || 0).toLocaleString();
+function render(){
+  $("coins").textContent=fmt(data.coins); $("diamonds").textContent=fmt(data.diamonds);
+  $("history").innerHTML="";
+  $("empty").style.display=data.history.length?"none":"block";
+  data.history.slice().reverse().forEach(item=>{
+    const tr=document.createElement("tr");
+    [item.date,item.type,item.asset,item.amount,item.id||"—"].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td);});
+    $("history").appendChild(tr);
+  });
+}
+function addHistory(type,asset,amount,id){data.history.push({date:new Date().toLocaleString(),type,asset:asset==="coins"?"Coins":"Diamonds",amount:fmt(amount),id:id||""});save();render();}
+$("loginBtn").onclick=()=>{if($("password").value===ADMIN_PASSWORD){$("login").classList.add("hidden");$("app").classList.remove("hidden");$("loginError").textContent="";render();}else{$("loginError").textContent="Password درست نہیں ہے۔";}};
+$("password").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginBtn").click();});
+$("logoutBtn").onclick=()=>{$("app").classList.add("hidden");$("login").classList.remove("hidden");$("password").value="";};
+$("generateBtn").onclick=()=>{const asset=$("asset").value,amount=Number($("amount").value);if(!Number.isSafeInteger(amount)||amount<1){alert("درست مکمل رقم درج کریں۔");return;}data[asset]+=amount;addHistory("Generated (website only)",asset,amount,"");$("amount").value="";};
+$("sendBtn").onclick=()=>{const id=$("gameId").value.trim(),asset=$("sendAsset").value,amount=Number($("sendAmount").value);if(!id){alert("Game ID درج کریں۔");return;}if(!Number.isSafeInteger(amount)||amount<1){alert("درست مکمل رقم درج کریں۔");return;}if(amount>data[asset]){alert("ویب سائٹ کے ڈیمو والٹ میں اتنا بیلنس نہیں ہے۔");return;}if(!confirm("یہ صرف ویب سائٹ میں ڈیمو ریکارڈ بنائے گا، گیم میں اصل Coins/Diamonds نہیں بھیجے گا۔ جاری رکھیں؟"))return;data[asset]-=amount;addHistory("Demo transfer record",asset,amount,id);$("sendAmount").value="";};
+$("clearBtn").onclick=()=>{if(confirm("کیا واقعی تمام ڈیمو بیلنس اور ہسٹری صاف کرنی ہے؟")){data={coins:0,diamonds:0,history:[]};save();render();}};
+</script>
+</body>
+</html>
